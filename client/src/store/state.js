@@ -1,0 +1,28 @@
+export default {
+  gateways: [],
+  groups: [],
+  configSite: {},
+  datas: undefined,
+  dataLoading: false,
+  consomations: [],
+  maxPower: [],
+  logs: [],
+  mails: [],
+  reports: [],
+  logsByType: [],
+  socketio: null,
+  windowWidth: 0,
+  windowHeight: 0,
+  year: new Date().getFullYear(),
+  loading: 0,
+  powerP1: [],
+  powerP2: [],
+  powerSite: [],
+  socketio_status: false,
+
+  dayConsumption: null,
+  monthConsumption: null,
+  yearConsumption: null,
+  users: [],
+  user: {}
+};
