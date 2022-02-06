@@ -7,9 +7,8 @@
       max-width="800"
       style="overflow-wrap: normal"
     >
-      <v-img src="\img\logo_eiffage.png" width="250px"></v-img>
       <v-form @submit="onSubmit" v-if="!$store.state.user.Id" ref="form">
-        <v-card-title class="justify-center"> Page de connexion </v-card-title>
+        <v-card-title class="justify-center"> Log In </v-card-title>
         <v-alert type="error" v-if="messageVisibility">
           {{message}}
         </v-alert>
@@ -26,11 +25,11 @@
           :type="passwordVisibility ? 'password' : 'text'"
           required
           v-model.trim="loginData.PassWord"
-          label="Entrez le mot de passe"
+          label="Password"
         ></v-text-field>
-        <v-btn type="submit" color="red" class="white--text"> Connexion </v-btn>
+        <v-btn type="submit" color="grey darken-3" class="white--text"> Log In </v-btn>
       </v-form>
-      <v-card-title v-else style="word-break: break-word;" class="justify-center pa-0"> Connecté en tant que : {{this.$store.state.user.Login}} </v-card-title>
+      <v-card-title v-else style="word-break: break-word;" class="justify-center pa-0"> Logged In as : {{this.$store.state.user.Login}} </v-card-title>
     </v-card>
   </v-container>
 </template>

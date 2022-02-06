@@ -2,35 +2,23 @@
   <v-container>
     <v-card raised class="mx-auto ma-2 pa-4" align="center" max-width="800">
       <v-img src="\img\logo_eiffage.png" width="250px"></v-img>
-      <v-card-title class="justify-center"> Bienvenue ! </v-card-title>
+      <v-card-title class="justify-center"> Welcome to Tillman Domotics!</v-card-title>
       <v-card-text>
-        <p>Ce logiciel a été développé dans le cadre de la norme ISO 50 001.<br/> Il permet un suivi énergétique du site Eiffage à Verquin.</p>
+        <p>This website allows Tillman Domotics' employees to manage company stock.<br/> Please make sure to log in to proceed.</p>
       </v-card-text>
+      <v-btn to="/login" color="grey darken-3" class="white--text" v-if="!isAuthentified"> Log In </v-btn>
     </v-card>
-    <v-img
-      contain
-      src="\img/Plan_masse.png"
-    ></v-img>
-    <v-row>
-      <v-col cols="12" lg="6">
-        <v-img
-          contain
-          src="\img\Legende_1.png"
-        ></v-img>
-      </v-col>
-      <v-col cols="12" lg="6">
-        <v-img
-          contain
-          src="\img\Legende_2.png"
-        ></v-img>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
   data: () => ({
+  }),
+  computed: () => ({
+    isAuthentified() {
+      return this.$store.state.user.Id ? true : false
+    },
   })
 };
 </script>

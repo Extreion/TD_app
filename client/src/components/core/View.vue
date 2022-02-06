@@ -1,9 +1,9 @@
 <template>
-  <v-main fill-height>
+  <v-main fill-height style="background-color: grey">
     <div id="core-view">
       <core-toolbar />
       <!--<v-sheet id="playground-example" class="overflow-y-auto" :max-height="windowHeight-50" style="margin-top:49px">-->
-      <v-sheet id="playground-example" class="overflow-y-auto" >
+      <v-sheet  id="playground-example" class="overflow-y-auto" :max-height="windowHeight-50" style="margin-top:49px; background-color: grey">
         <v-fade-transition mode="out-in" style="margin-top:5px">
           <router-view />
         </v-fade-transition>

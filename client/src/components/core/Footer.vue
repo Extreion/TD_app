@@ -6,7 +6,7 @@
     color="grey"
   >
     <span style="margin-left:56px;" class="font-weight-light copyright">
-      N.OUARET, S.SUEUR, H.DEFRANCE
+      S.SUEUR
       &copy;
       {{ (new Date()).getFullYear() }}
     </span>

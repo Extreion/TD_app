@@ -1,23 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Dashboard from "../views/Dashboard.vue";
-import Gateways from "../views/Gateways.vue";
-import Counter from "../views/Counter.vue";
-import History from "../views/History";
-import Logs from "../views/Logs";
-import About from "../views/About";
-import Electricity from "../views/Electricity.vue";
-import Water from "../views/Water.vue";
-import Fuel from "../views/Fuel.vue";
-import Gas from "../views/Gas.vue";
-import Administration from "../views/Administration.vue";
+import Stock from "../views/Stock.vue";
 import Login from "../views/Login.vue";
-import Power from "../views/Power.vue";
+import SignIn from "../views/SignIn.vue";
+import SignOut from "../views/SignOut.vue";
+import PurchaseOrders from "../views/PurchaseOrders.vue";
 import Home from "../views/Home.vue";
 import Homepage from "../views/Homepage.vue";
-import Reports from "../views/Reports.vue";
-import Transformer from "../views/Transformer.vue";
-import AppConfig from "../views/AppConfig.vue";
 import store from "../store";
 import axios from "axios";
 let URL = "http://172.19.181.156:4545/";
@@ -27,172 +16,66 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    title: "Page d'accueil",
+    title: "Homepage",
     icon: "mdi-home",
     component: Home,
     children: [
       {
         path: "",
         component: Homepage,
-        name: "Accueil",
+        name: "Homepage",
         meta: { requiresAuth: false },
       },
     ],
   },
   {
-    path: "/administration",
-    component: Administration,
-    title: "Administration",
-    icon: "mdi-clipboard-account",
-    children: [
-      {
-        path: "",
-        component: Login,
-        name: "Login",
-        meta: { requiresAuth: false },
-      },
-      // {path: 'suivi-alarme', component: Dashboard, name: "Suivi des alarmes", icon: "mdi-alarm-light" },
-      {
-        path: "logs",
-        component: Logs,
-        name: "Logs",
-        icon: "mdi-history",
-        meta: { requiresAuth: true },
-      },
-      {
-        path: "config",
-        component: AppConfig,
-        name: "Paramétrage",
-        icon: "mdi-cogs",
-        meta: {requiresAuth: true},
-      }
-    ],
+    path: "/login",
+    name: "Login",
+    icon: "mdi-home",
+    component: Login,
+    hide: true
   },
   {
-    path: "/dashboard",
-    title: "Tableau de bord",
-    icon: "mdi-view-dashboard",
-    component: Dashboard,
-    children: [
-      {
-        path: "",
-        component: Dashboard,
-        name: "Tableau de bord",
-        meta: { requiresAuth: false },
-      },
-    ],
+    path: "/stock",
+    component: Stock,
+    name: "Stock management",
+    title: "Stock",
+    icon: "mdi-google-spreadsheet"
   },
   {
-    path: "/elec",
-    component: Electricity,
-    title: "Électricité",
-    icon: "mdi-flash",
-    children: [
-      {
-        path: "",
-        name: "Électricité",
-        component: Dashboard,
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "passerelles",
-        component: Gateways,
-        name: "Passerelles",
-        icon: "mdi-sitemap",
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "passerelles/compteurs/:gatewayId/:address",
-        component: Counter,
-        name: "Compteur",
-        show: false,
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "puissance",
-        component: Power,
-        name: "Puissance",
-        icon: "mdi-power-plug",
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "transformateurs",
-        component: Transformer,
-        name: "Transformateur",
-        icon: "mdi-transmission-tower",
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "consommation",
-        component: History,
-        name: "Suivi de conso",
-        icon: "mdi-chart-timeline-variant",
-        meta: { requiresAuth: false },
-      },
-      {
-        path: "rapport",
-        component: Reports,
-        name: "Rapport",
-        icon: "mdi-chart-tree",
-        meta: { requiresAuth: true },
-      },
-    ],
+    path: "/sign-out",
+    component: SignOut,
+    name: "Sign-Out",
+    title: "Sign-Out",
+    icon: "mdi-logout-variant"
   },
   {
-    path: "/eau",
-    component: Water,
-    title: "Eau",
-    icon: "mdi-water",
-    children: [
-      {
-        path: "",
-        component: Dashboard,
-        name: "Eau",
-        meta: { requiresAuth: false },
-      },
-    ],
+    path: "/sign-in",
+    component: SignIn,
+    name: "Sign-In",
+    title: "Sign-In",
+    icon: "mdi-login-variant"
   },
   {
-    path: "/gaz",
-    component: Gas,
-    title: "Gaz",
-    icon: "mdi-fire",
-    children: [
-      {
-        path: "",
-        component: Dashboard,
-        name: "Gaz",
-        meta: { requiresAuth: false },
-      },
-    ],
+    path: "/project-view",
+    component: PurchaseOrders,
+    name: "Purchase Orders",
+    title: "Purchase Orders",
+    icon: "mdi-view-list"
   },
   {
-    path: "/fuel",
-    component: Fuel,
-    title: "Fuel",
-    icon: "mdi-gas-station",
-    children: [
-      {
-        path: "",
-        component: Dashboard,
-        name: "Fuel",
-        meta: { requiresAuth: false },
-      },
-    ],
+    path: "/p-l-view",
+    component: SignIn,
+    name: "Profit & Loss",
+    title: "Profit & Loss",
+    icon: "mdi-chart-areaspline"
   },
   {
-    path: "/about",
-    component: About,
-    title: "À propos",
-    icon: "mdi-information-outline",
-    children: [
-      {
-        path: "",
-        component: Dashboard,
-        name: "À propos",
-        meta: { requiresAuth: false },
-      },
-    ],
+    path: "/admin",
+    component: SignIn,
+    name: "Administration Panel",
+    title: "Administration Panel",
+    icon: "mdi-wrench"
   },
 ];
 

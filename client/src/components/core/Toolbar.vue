@@ -17,21 +17,23 @@
     </div>
     <span class="title white--text">{{ title }}</span>
     <v-spacer></v-spacer>
+
+    <img flex text-center src="\img\tillman-domotics.svg" height="30px"/>
+
+    <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+        to="/"
         text
         color="white"
       >
-        <span class="d-none d-sm-block">Aide</span>
-        <v-icon>mdi-help</v-icon>
+        <span class="d-none d-sm-block">M. Symons, Administrator</span>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
 
       <v-btn
         @click="logOut"
-        v-if="$store.state.user.Id"
-        :to="'/administration'"
+        :to="'/login'"
         icon
       >
         <v-icon color="white">mdi-logout</v-icon>
